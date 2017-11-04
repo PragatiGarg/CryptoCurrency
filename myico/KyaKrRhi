@@ -1,0 +1,55 @@
+npm install -g ethereumjs-testrpc
+npm install -g truffle
+testrpc -u 0
+
+// in a new window
+mkdir my-ico && cd my-ico
+truffle init
+
+In truffle.js add
+networks: {
+  development: {
+    host: "localhost",
+    port: 8545,
+    network_id: "*" // Match any network id
+  }
+}
+
+
+truffle compile
+
+Result:
+Compiling ./contracts/Migrations.sol...
+Writing artifacts to ./build/contracts
+
+
+truffle migrate --network development
+Result:
+Using network 'development'.
+
+Network up to date.
+
+
+truffle test
+Result1:
+Using network 'development'.
+
+Error: Error: Exceeds block gas limit
+
+
+Add gas=21000 to network development in truffle.jd
+
+Result2:
+Using network 'development'.
+
+Error: Error: base fee exceeds gas limit
+
+
+Change gas to 4712388 for development network in truffle.js
+
+Result3:
+Using network 'development'.
+
+
+
+  0 passing (1ms)

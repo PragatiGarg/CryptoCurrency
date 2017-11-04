@@ -1,0 +1,48 @@
+# Does not work
+
+Installing geth
+
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install -y ethereum
+
+Now you can make a genesis block by creating a new directory and writing to a json file:
+cd
+mkdir eth-new
+cd eth-new
+atom genesis.json
+
+genesis.json
+{
+    "nonce": "0x0000000000000042",
+    "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "difficulty": "0x4000",
+    "alloc": {},
+    "coinbase": "0x0000000000000000000000000000000000000000",
+    "timestamp": "0x00",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "Custem Ethereum Genesis Block",
+    "gasLimit": "0xffffffff"
+}
+
+
+
+Creating a Blockchain
+# maxpeers command is set to 0 to disable the network
+
+# Idhar atak rha
+
+WARN [10-08|21:13:44] Synchronisation failed, retrying         err="block body download canceled (requested)"
+
+mkdir eth-data
+geth --datadir eth-new genesis.json init eth-new/genesis.json --networkid 123 --nodiscover --maxpeers 0 console
+
+
+In the geth console, type the following to make a new account and create a new password by typing in whatever you want. You will have to type your new password twice.
+personal.newAccount()
+
+
+The output after this should be a string of letters and numbers — an address of your account
+
+Address of my account:

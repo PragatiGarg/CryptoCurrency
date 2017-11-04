@@ -4,12 +4,16 @@ client = MongoClient("localhost:27017")
 db = client.crypto
 testUser = db['testCentralUser']
 testCoin = db['testCentralCoin']
+
+import uuid
 def initialiseCoin(userName, coinValue):
     serialNumber = 0
     ts = datetime.datetime.now().timestamp()
     # print(ts)
-    coinId = int(ts*65537)
-    byteCoinId = (coinId).to_bytes((coinId.bit_length() + 8), byteorder='big')
+    # coinId = int(uuid.uuid4())%1000000000000000000+int(ts*65537)%1000000000000000000
+    coinId = uuid.uuid4()
+    # byteCoinId = (coinId).to_bytes((coinId.bit_length() + 8), byteorder='big')
+    byteCoinId = coinId.bytes
     serialNumber = serialNumber + 1
     coin = str(coinId)+"-"+str(serialNumber);
     signature = signUsingKey(userName,b64encode(byteCoinId))
