@@ -1,0 +1,25 @@
+git clone --recursive https://github.com/ethereum/cpp-ethereum.git
+cd cpp-ethereum
+scripts/install_cmake.sh --prefix /usr/local
+sudo apt-get install libleveldb-dev libmicrohttpd-dev
+
+
+
+git clone https://github.com/ethereum/remix
+cd remix
+npm install
+npm start
+
+
+Run npm run start_dev and open http://127.0.0.1:8080 in your browser
+
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
+
+geth account new
+Address: {2fc75381cd3dffaf4564d7e160c85de739e6478b}
+
+geth --testnet --fast --cache=512 console
