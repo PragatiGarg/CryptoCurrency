@@ -85,10 +85,29 @@ add gas in truffle.js
 Change app/javascript/app.js and app/index.html
 truffle console
 web3.personal.newAccount('keepitPG13')
-'0x0f671af92a25af602dacd09339c74fceaae5db13'
-web3.eth.getBalance('2fc75381cd3dffaf4564d7e160c85de739e6478b')
+'0xa49e176d36d7f63c70a737a4d0adba61a89e0968'
+web3.eth.getBalance('0xa49e176d36d7f63c70a737a4d0adba61a89e0968')
 { [String: '0'] s: 1, e: 0, c: [ 0 ] }
 web3.personal.unlockAccount('0x0f671af92a25af602dacd09339c74fceaae5db13', 'keepitPG13', 15000)
 true
 
 Get ethers from somewhere
+
+
+*****Aborted*****
+
+Run on local
+truffle console
+Web3 = require('web3')
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+web3.eth.accounts
+'0xea3e884168be1df7f1f8b1914187cf670d3c481c'
+web3.eth.getBalance('0xea3e884168be1df7f1f8b1914187cf670d3c481c')
+{ [String: '100000000000000000000'] s: 1, e: 20, c: [ 1000000 ] }
+truffle migrate
+Voting.deployed().then(function(contractInstance) {contractInstance.voteForCandidate('Rama').then(function(v) {console.log(v)})})
+Voting.deployed().then(function(contractInstance) {contractInstance.totalVotesFor.call('Rama').then(function(v) {console.log(v)})})
+
+
+Outside truffle console
+npm run dev

@@ -1,0 +1,23 @@
+https://medium.com/@mvmurthy/full-stack-hello-world-voting-ethereum-dapp-tutorial-part-3-331c2712c9df
+
+npm install ethereumjs-testrpc web3@0.20.1
+node_modules/.bin/testrpc
+
+
+mkdir third
+cd third
+updated vote.sol
+
+
+
+Run on local
+truffle console
+truffle migrate
+
+
+
+
+Vote.deployed().then(function(contract) {contract.buy({value: web3.toWei('1', 'ether'), from: web3.eth.accounts[2]})})
+
+Outside truffle console
+npm run dev
