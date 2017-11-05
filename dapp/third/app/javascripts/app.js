@@ -32,6 +32,7 @@ let tokenPrice = null;
 window.voteForCandidate = function(candidate) {
   let candidateName = $("#candidate").val();
   let voteTokens = $("#vote-tokens").val();
+  let Voter = $("#voteName").val();
   $("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
   $("#candidate").val("");
   $("#vote-tokens").val("");
@@ -43,7 +44,7 @@ window.voteForCandidate = function(candidate) {
   Vote.deployed().then(function(contractInstance) {
     contractInstance.voteForCandidate(candidateName, voteTokens, {
       gas: 140000,
-      from: web3.eth.accounts[0]
+      from: Voter
     }).then(function() {
       let div_id = candidates[candidateName];
       return contractInstance.totalVotesFor.call(candidateName).then(function(v) {
@@ -62,12 +63,13 @@ window.voteForCandidate = function(candidate) {
 window.buyTokens = function() {
   let tokensToBuy = $("#buy").val();
   let Buyer = $("#buyName").val();
+  console.log("Buyer: ", Buyer);
   let price = tokensToBuy * tokenPrice;
   $("#buy-msg").html("Purchase order has been submitted. Please wait.");
   Vote.deployed().then(function(contractInstance) {
     contractInstance.buy({
       value: web3.toWei(price, 'ether'),
-      from: Buyer
+      from: web3.eth.accounts[Buyer]
     }).then(function(v) {
       $("#buy-msg").html("");
       web3.eth.getBalance(contractInstance.address, function(error, result) {
@@ -133,6 +135,10 @@ function setupCandidateRows() {
   Object.keys(candidates).forEach(function(candidate) {
     $("#candidate-rows").append("<tr><td>" + candidate + "</td><td id='" + candidates[candidate] + "'></td></tr>");
   });
+}
+
+function listCandidate() {
+  candidateList = web3.eth.accounts;
 }
 
 /* Fetch the total tokens, tokens available for sale and the price of

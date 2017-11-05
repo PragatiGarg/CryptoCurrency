@@ -29,12 +29,27 @@
     <div class="container-fluid">
       <h2>Vote for Candidate</h2>
       <div id="msg"></div>
+      <h3>Select Address to Vote from</h3>
+      <select id="voteName">
+        <option value=0x5bc746b1b4b5ab75e52bce46a8e78338fcb44d57>0x5bc746b1b4b5ab75e52bce46a8e78338fcb44d57</option>
+        <option value=0x8f358f395c7ca1b3cdbaa7f7b7edcc25dcd8dd5e>0x8f358f395c7ca1b3cdbaa7f7b7edcc25dcd8dd5e</option>
+        <option value=0xf210c5b28fd6a3c1b3746c20b6a3ea2ff5668b54>0xf210c5b28fd6a3c1b3746c20b6a3ea2ff5668b54</option>
+        <option value=0xd31e489b1a2c294ac2473d9bceace0d7ea75762c>0xd31e489b1a2c294ac2473d9bceace0d7ea75762c</option>
+        <option value=0x5b512f0a3ba1045302e1cb12038270eb1fffd5a7>0x5b512f0a3ba1045302e1cb12038270eb1fffd5a7</option>
+        <option value=0x43359224071126db42b1fe257393bafdda8755bf>0x43359224071126db42b1fe257393bafdda8755bf</option>
+        <option value=0xf1efeed1d20ec700b12675d2a9a565fbe004a400>0xf1efeed1d20ec700b12675d2a9a565fbe004a400</option>
+        <option value=0x98131c9d5b01e599b39db9a2f7725be8386d8f74>0x98131c9d5b01e599b39db9a2f7725be8386d8f74</option>
+        <option value=0x542209556bb457570bfd381f2ab951a13b0b0d7f>0x542209556bb457570bfd381f2ab951a13b0b0d7f</option>
+        <option value=0x9ca694ec6f2020a7f97abc6b8917625efc02e250>0x9ca694ec6f2020a7f97abc6b8917625efc02e250</option>
+      </select>
+      <h3></h3>
       <input type="text" id="candidate" placeholder="Enter the candidate name"/>
       <br>
       <br>
       <input type="text" id="vote-tokens" placeholder="Total no. of tokens to vote"/>
       <br>
       <br>
+
       <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
     </div>
   </div>
@@ -67,7 +82,21 @@
       <div class="col-sm-12">
         <div id="buy-msg"></div>
         <input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy"/>&nbsp;
-        <input type="text" id="buyName" class="col-sm-8" placeholder="Address buying tokens"/>&nbsp;
+        <!-- <input type="text" id="buyName" class="col-sm-8" placeholder="Address buying tokens"/>&nbsp; -->
+        <h3>Select Address</h3>
+        <select id="buyName">
+          <option value=0>0x5bc746b1b4b5ab75e52bce46a8e78338fcb44d57</option>
+          <option value=1>0x8f358f395c7ca1b3cdbaa7f7b7edcc25dcd8dd5e</option>
+          <option value=2>0xf210c5b28fd6a3c1b3746c20b6a3ea2ff5668b54</option>
+          <option value=3>0xd31e489b1a2c294ac2473d9bceace0d7ea75762c</option>
+          <option value=4>0x5b512f0a3ba1045302e1cb12038270eb1fffd5a7</option>
+          <option value=5>0x43359224071126db42b1fe257393bafdda8755bf</option>
+          <option value=6>0xf1efeed1d20ec700b12675d2a9a565fbe004a400</option>
+          <option value=7>0x98131c9d5b01e599b39db9a2f7725be8386d8f74</option>
+          <option value=8>0x542209556bb457570bfd381f2ab951a13b0b0d7f</option>
+          <option value=9>0x9ca694ec6f2020a7f97abc6b8917625efc02e250</option>
+        </select>
+        <h3></h3>
         <a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a>
       </div>
     </div>
