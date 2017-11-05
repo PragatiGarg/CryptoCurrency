@@ -1,1 +1,4 @@
 centralised/users/*
+*/node_modules/*
+dapp/second/node_modules/*
+dapp/first/node_modules/*
